@@ -22,8 +22,8 @@ export const Header = () => {
   return (
     <header className="flex justify-between items-center p-6 pb-4">
       <div>
-        <h1 className="text-main font-semibold text-3xl">Headlines</h1>
-        <p className="text-gray">Headlines for {COUNTRIES_MAP[currentCountry].label}</p>
+        <h1 className="text-main font-semibold text-3xl">Headline</h1>
+        <p className="text-gray mt-1">Headlines for {COUNTRIES_MAP[currentCountry].label}</p>
       </div>
       <Dropdown currentCountry={currentCountry} onChange={(e) => changeCountry(e)} />
     </header>
