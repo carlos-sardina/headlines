@@ -6,7 +6,7 @@ const image =
 
 export const Headline = () => {
   return (
-    <article className="bg-white flex gap-10 items-center py-6 hover:bg-hover hover:cursor-pointer rounded-lg px-6 border-b-[1px] border-b-hover">
+    <article className="bg-white flex gap-10 items-center py-6 hover:bg-hover hover:cursor-pointer rounded-lg px-6 border-b-[1px] border-b-hover w-full">
       <section className="flex-1">
         <h4 className="text-gray font-medium">The New York Times</h4>
         <p className="text-black mt-1 text-xl font-bold">
