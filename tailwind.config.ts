@@ -9,7 +9,12 @@ const config: Config = {
   plugins: [],
   theme: {
     extend: {},
-    colors: {}
+    colors: {
+      main: '#239c97',
+      black: '#101725',
+      gray: '#9299a4',
+      transparent: 'transparent'
+    }
   }
 };
 export default config;
