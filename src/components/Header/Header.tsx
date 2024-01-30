@@ -1,29 +1,31 @@
 'use client';
 import { COUNTRIES_MAP } from '@constants';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { Dropdown } from '../CountryDropdown/CountryDropdown';
+import { useRouter } from 'next/navigation';
 
 export const Header = () => {
+  const router = useRouter();
+  const pathName = usePathname();
   const searchParams = useSearchParams();
-  const currentCategory = (searchParams.get('country') as keyof typeof COUNTRIES_MAP) ?? COUNTRIES_MAP.us.key;
-  const { key, label } = COUNTRIES_MAP[currentCategory];
+  const country = searchParams.get('country') ?? '';
+  const currentCountry = Object.keys(COUNTRIES_MAP).includes(country)
+    ? (country as keyof typeof COUNTRIES_MAP)
+    : COUNTRIES_MAP.us.key;
+
+  const changeCountry = (country: keyof typeof COUNTRIES_MAP) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('country', country);
+    router.push(`${pathName}?${params}`);
+  };
 
   return (
     <header className="flex justify-between items-center p-6 pb-4">
       <div>
         <h1 className="text-main font-semibold text-3xl">Headlines</h1>
-        <p className="text-gray">Today, February 23rd</p>
+        <p className="text-gray">Headlines for {COUNTRIES_MAP[currentCountry].label}</p>
       </div>
-      <div className="flex gap-2 items-center">
-        <Image
-          className="w-[25px] h-[15px]"
-          src={`https://flagcdn.com/${key}.svg`}
-          alt={`${label} flag`}
-          width={25}
-          height={15}
-        ></Image>
-        <p>{key.toUpperCase()}</p>
-      </div>
+      <Dropdown currentCountry={currentCountry} onChange={(e) => changeCountry(e)} />
     </header>
   );
 };

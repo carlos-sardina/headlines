@@ -13,7 +13,9 @@ const config: Config = {
       main: '#239c97',
       black: '#101725',
       gray: '#9299a4',
-      transparent: 'transparent'
+      transparent: 'transparent',
+      white: '#ffffff',
+      hover: 'rgba(35, 156, 151, 0.1)'
     }
   }
 };

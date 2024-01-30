@@ -6,7 +6,10 @@ export const Navigation = () => {
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
-  const currentCategory = searchParams.get('category') ?? CATEGORIES_MAP.all.key;
+  const category = searchParams.get('category') ?? '';
+  const currentCategory = Object.keys(CATEGORIES_MAP).includes(category)
+    ? (category as keyof typeof CATEGORIES_MAP)
+    : CATEGORIES_MAP.all.key;
 
   const changeCategory = (category: keyof typeof CATEGORIES_MAP) => {
     const params = new URLSearchParams(searchParams);
