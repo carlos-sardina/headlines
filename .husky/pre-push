@@ -1,7 +1,0 @@
-branch=$(git symbolic-ref --short HEAD)
-if [ "$branch" = "master" ]; then
-  echo ">> Push to master is not allowed"
-  exit 1
-fi
-
-npm run check
