@@ -1,7 +1,7 @@
 export const CATEGORIES_MAP = {
   all: {
     key: 'all',
-    label: 'All'
+    label: 'World'
   },
   business: {
     key: 'business',

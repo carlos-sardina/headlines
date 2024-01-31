@@ -1,19 +1,23 @@
-import { CATEGORIES_MAP, COUNTRIES_MAP, RESULTS_PER_PAGE } from '@constants';
+import { COUNTRIES_MAP, RESULTS_PER_PAGE } from '@constants';
 import { HeadlinesResponse } from '@types';
 
-type GetHeadlinesProps = {
+type FetchHeadlinesProps = {
   country: keyof typeof COUNTRIES_MAP;
-  category: keyof typeof CATEGORIES_MAP;
+  categoryQuery: string;
   page: number;
+  count?: number;
 };
 
-export const getHeadlines = async ({ country, category, page }: GetHeadlinesProps) => {
-  const categoryQuery = category === CATEGORIES_MAP.all.key ? '' : `&category=${category}`;
-
+export const fetchHeadlines = async ({
+  country,
+  categoryQuery,
+  page,
+  count = RESULTS_PER_PAGE
+}: FetchHeadlinesProps) => {
   const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${RESULTS_PER_PAGE}&page=${page}${categoryQuery}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`,
+    `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${count}&page=${page}${categoryQuery}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`,
     { cache: 'no-cache' }
   );
   const data = await response.json();
-  return data as HeadlinesResponse;
+  return { ...data, country } as HeadlinesResponse;
 };

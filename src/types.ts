@@ -1,3 +1,5 @@
+import { COUNTRIES_MAP } from '@constants';
+
 export type Headline = {
   source: {
     id?: string;
@@ -10,10 +12,12 @@ export type Headline = {
   urlToImage?: string;
   publishedAt?: string;
   content?: string;
+  country?: keyof typeof COUNTRIES_MAP;
 };
 
 export type HeadlinesResponse = {
   status: 'ok' | 'error';
-  totalResults: number;
+  totalResults: number | null;
   articles: Headline[];
+  country?: keyof typeof COUNTRIES_MAP;
 };
