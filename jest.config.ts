@@ -5,7 +5,8 @@ const config: Config.InitialOptions = {
   coverageReporters: ['text', 'text-summary'],
   collectCoverageFrom: ['./src/components/**/*.tsx', '!**/index.{ts,tsx}'],
   moduleNameMapper: {
-    '^@test-utils$': '<rootDir>/src/testUtils.ts'
+    '^@test-utils$': '<rootDir>/src/testUtils.ts',
+    '^@constants$': '<rootDir>/src/constants.ts'
   }
 };
 
