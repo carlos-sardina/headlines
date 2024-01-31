@@ -1,15 +1,13 @@
 'use client';
 import { CATEGORIES_MAP } from '@constants';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { getCategoryParam } from '@utils';
 
 export const Navigation = () => {
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
-  const category = searchParams.get('category') ?? '';
-  const currentCategory = Object.keys(CATEGORIES_MAP).includes(category)
-    ? (category as keyof typeof CATEGORIES_MAP)
-    : CATEGORIES_MAP.all.key;
+  const currentCategory = getCategoryParam(searchParams);
 
   const changeCategory = (category: keyof typeof CATEGORIES_MAP) => {
     const params = new URLSearchParams(searchParams);

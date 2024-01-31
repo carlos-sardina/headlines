@@ -251,3 +251,6 @@ export const COUNTRIES_MAP = {
     label: 'South Africa'
   }
 } as const;
+
+export const DEFAULT_COUNTRY = COUNTRIES_MAP.us.key as keyof typeof COUNTRIES_MAP;
+export const DEFAULT_CATEGORY = CATEGORIES_MAP.all.key as keyof typeof CATEGORIES_MAP;

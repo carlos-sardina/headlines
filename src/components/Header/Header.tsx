@@ -3,15 +3,13 @@ import { COUNTRIES_MAP } from '@constants';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Dropdown } from '../CountryDropdown/CountryDropdown';
 import { useRouter } from 'next/navigation';
+import { getCountryParam } from '@utils';
 
 export const Header = () => {
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
-  const country = searchParams.get('country') ?? '';
-  const currentCountry = Object.keys(COUNTRIES_MAP).includes(country)
-    ? (country as keyof typeof COUNTRIES_MAP)
-    : COUNTRIES_MAP.us.key;
+  const currentCountry = getCountryParam(searchParams);
 
   const changeCountry = (country: keyof typeof COUNTRIES_MAP) => {
     const params = new URLSearchParams(searchParams);

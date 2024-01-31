@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={`${inter.className} flex flex-col h-screen`}>
         <Header />
         <Navigation />
-        <div className="flex-1 overflow-x-auto">{children}</div>
+        <div className="flex flex-1 overflow-x-auto">{children}</div>
         <Footer />
       </body>
     </html>
