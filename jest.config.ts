@@ -6,7 +6,9 @@ const config: Config.InitialOptions = {
   collectCoverageFrom: ['./src/components/**/*.tsx', '!**/index.{ts,tsx}'],
   moduleNameMapper: {
     '^@test-utils$': '<rootDir>/src/testUtils.ts',
-    '^@constants$': '<rootDir>/src/constants.ts'
+    '^@constants$': '<rootDir>/src/constants.ts',
+    '^@utils$': '<rootDir>/src/utils/index.ts',
+    '^@services$': '<rootDir>/src/services/index.ts'
   }
 };
 
