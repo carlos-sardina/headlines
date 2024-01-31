@@ -12,7 +12,7 @@ export const getHeadlines = async ({ country, category, page }: GetHeadlinesProp
 
   const response = await fetch(
     `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${RESULTS_PER_PAGE}&page=${page}${categoryQuery}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`,
-    { next: { revalidate: 300 } }
+    { cache: 'no-cache' }
   );
   const data = await response.json();
   return data as HeadlinesResponse;
