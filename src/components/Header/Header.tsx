@@ -14,6 +14,7 @@ export const Header = () => {
   const changeCountry = (country: keyof typeof COUNTRIES_MAP) => {
     const params = new URLSearchParams(searchParams);
     params.set('country', country);
+    params.delete('page');
     router.push(`${pathName}?${params}`);
   };
 

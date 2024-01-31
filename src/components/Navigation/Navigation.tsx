@@ -12,6 +12,7 @@ export const Navigation = () => {
   const changeCategory = (category: keyof typeof CATEGORIES_MAP) => {
     const params = new URLSearchParams(searchParams);
     params.set('category', category);
+    params.delete('page');
     router.push(`${pathName}?${params}`);
   };
 

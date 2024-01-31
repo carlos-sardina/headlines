@@ -1,4 +1,4 @@
-import { CATEGORIES_MAP, COUNTRIES_MAP } from '@constants';
+import { CATEGORIES_MAP, COUNTRIES_MAP, RESULTS_PER_PAGE } from '@constants';
 import { HeadlinesResponse } from '@types';
 
 type GetHeadlinesProps = {
@@ -11,7 +11,7 @@ export const getHeadlines = async ({ country, category, page }: GetHeadlinesProp
   const categoryQuery = category === CATEGORIES_MAP.all.key ? '' : `&category=${category}`;
 
   const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=${country}&page=${page}${categoryQuery}&apiKey=38ad305e5baa42559b4b44a3101bcb07`,
+    `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${RESULTS_PER_PAGE}&page=${page}${categoryQuery}&apiKey=38ad305e5baa42559b4b44a3101bcb07`,
     { next: { revalidate: 300 } }
   );
   const data = await response.json();

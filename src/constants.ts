@@ -254,3 +254,4 @@ export const COUNTRIES_MAP = {
 
 export const DEFAULT_COUNTRY = COUNTRIES_MAP.us.key as keyof typeof COUNTRIES_MAP;
 export const DEFAULT_CATEGORY = CATEGORIES_MAP.all.key as keyof typeof CATEGORIES_MAP;
+export const RESULTS_PER_PAGE = 20;

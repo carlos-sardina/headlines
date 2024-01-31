@@ -28,7 +28,7 @@ export default async function Home({ searchParams }: Props) {
       {headlines.articles.map((headline) => (
         <Headline key={headline.title} headline={headline} />
       ))}
-      <Pagination />
+      <Pagination total={headlines.totalResults} currentPage={page} />
     </main>
   );
 }
