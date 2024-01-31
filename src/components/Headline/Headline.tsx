@@ -2,6 +2,7 @@ import { IconClock, IconMicrophone2 } from '@tabler/icons-react';
 import { FooterItem } from './FooterItem';
 import { Headline as THeadline } from '@types';
 import Image from 'next/image';
+import moment from 'moment';
 
 type Props = {
   headline: THeadline;
@@ -21,7 +22,9 @@ export const Headline = ({ headline }: Props) => {
         {headline?.author ? <h4 className="text-gray font-medium">{headline.author}</h4> : null}
         <p className="text-black mt-1 text-xl font-bold">{headline.title}</p>
         <div className="mt-4 flex gap-4 text-sm">
-          {headline?.publishedAt ? <FooterItem icon={<IconClock size={20} />} label={headline.publishedAt} /> : null}
+          {headline?.publishedAt ? (
+            <FooterItem icon={<IconClock size={20} />} label={moment(headline.publishedAt).fromNow()} />
+          ) : null}
           {headline?.source?.name ? (
             <FooterItem icon={<IconMicrophone2 size={20} />} label={headline.source.name} />
           ) : null}
