@@ -1,8 +1,7 @@
 'use client';
 import { COUNTRIES_MAP } from '@constants';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { Dropdown } from '../CountryDropdown/CountryDropdown';
-import { useRouter } from 'next/navigation';
 import { getCountryParam } from '@utils';
 
 export const Header = () => {

@@ -1,6 +1,7 @@
 import { IconClock, IconMicrophone2 } from '@tabler/icons-react';
 import { FooterItem } from './FooterItem';
 import { Headline as THeadline } from '@types';
+import Image from 'next/image';
 
 type Props = {
   headline: THeadline;
@@ -23,7 +24,7 @@ export const Headline = ({ headline }: Props) => {
       </section>
       {headline?.urlToImage ? (
         <div>
-          <img
+          <Image
             src={headline.urlToImage}
             alt={headline.title}
             className="w-[100px] h-[100px] block rounded-xl"
