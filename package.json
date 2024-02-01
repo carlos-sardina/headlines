@@ -11,7 +11,8 @@
     "tscheck": "tsc --noEmit",
     "open-browser": "open http://localhost:9001",
     "check": "npm run prettier:check && npm run tscheck && npm run lint",
-    "test": "jest test --watchAll=false"
+    "test": "jest test --watchAll=false",
+    "test:coverage": "jest test --coverage"
   },
   "dependencies": {
     "@tabler/icons-react": "^2.46.0",

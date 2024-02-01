@@ -21,7 +21,7 @@ export const Header = () => {
   const headlineSubTitle =
     currentCategory === CATEGORIES_MAP.all.key
       ? 'World Headlines'
-      : 'Headlines for ' + COUNTRIES_MAP[currentCountry].label;
+      : 'Headlines for ' + COUNTRIES_MAP[currentCountry]?.label;
 
   return (
     <header className="flex justify-between items-center p-6 pb-4">
