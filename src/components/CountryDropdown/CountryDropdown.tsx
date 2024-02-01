@@ -38,6 +38,7 @@ export const Dropdown = ({ currentCountry, onChange }: Props) => {
   return (
     <div className="relative">
       <button
+        aria-expanded={isOpened}
         className="h-[40px] rounded-lg border-gray border flex items-center gap-2 w-[100px] justify-center"
         ref={buttonRef}
         onClick={() => setIsOpened((prev) => !prev)}
