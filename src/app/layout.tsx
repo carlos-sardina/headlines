@@ -20,6 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ...Object.values(CATEGORIES_MAP).map((category) => category.label)
     ],
     robots: 'index, follow',
+    metadataBase: new URL('https://headlines.vercel.app'),
     openGraph: {
       type: 'website',
       locale: 'en_US',

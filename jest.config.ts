@@ -2,6 +2,9 @@ import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.tsx?$': ['babel-jest', { configFile: './.babel.config.testing.json' }]
+  },
   coverageReporters: ['text', 'text-summary'],
   collectCoverageFrom: ['./src/components/**/*.tsx', '!**/index.{ts,tsx}'],
   moduleNameMapper: {
