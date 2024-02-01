@@ -18,6 +18,9 @@ Then, run the following command to start the app
 npm run dev
 ```
 
+## Responsive
+The app is responsive and can be viewed on any device
+
 ## Coverage
 Coverage report for the components folder
 
