@@ -30,4 +30,14 @@ describe('Dropdown', () => {
     fireEvent.click(getByText(COUNTRIES_MAP.gb.key.toUpperCase()));
     expect(mockOnChange).toHaveBeenCalledWith('gb');
   });
+
+  test('closes the dropdown when clicking outside', () => {
+    const { getByRole } = render(<Dropdown currentCountry="us" onChange={mockOnChange} />);
+    const button = getByRole('button');
+
+    fireEvent.click(button);
+    fireEvent.mouseDown(document.body);
+
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+  });
 });
