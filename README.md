@@ -7,6 +7,14 @@ Live: https://headlines-blue.vercel.app/
 - Node LTS 16.x.x
 - NPM
 
+## ENV
+Create a .env.local file and place the next key inside:
+```
+NEXT_PUBLIC_NEWS_API_KEY=YOUR_API_KEY
+```
+
+Replace YOUR_API_KEY with an actual key from [newsapi.org](https://newsapi.org/).
+
 ## Run the app
 Navigate to the project folder and run the following command to install the dependencies
 ```bash
