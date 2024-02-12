@@ -1,7 +1,7 @@
 'use client';
 import { COUNTRIES_MAP } from '@constants';
 import { useEffect, useRef, useState } from 'react';
-import { CountryItem } from './CountryItem';
+import { CountryItem } from './CountryItem/CountryItem';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 
 type Props = {

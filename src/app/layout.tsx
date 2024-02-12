@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Footer, Header, Navigation } from '@components';
-import './globals.css';
 import { Suspense } from 'react';
 import { CATEGORIES_MAP } from '@constants';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 

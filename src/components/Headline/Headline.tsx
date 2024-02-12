@@ -1,5 +1,5 @@
 import { IconBrowser, IconClock, IconWorld } from '@tabler/icons-react';
-import { FooterItem } from './FooterItem';
+import { FooterItem } from './FooterItem/FooterItem';
 import { Headline as THeadline } from '@types';
 import Image from 'next/image';
 import moment from 'moment';
