@@ -10,7 +10,8 @@
     "prettier:check": "prettier --check \"src/**/*.{ts,tsx}\" -c ./.prettierrc",
     "tscheck": "tsc --noEmit",
     "open-browser": "open http://localhost:9001",
-    "test": "jest test --watchAll=false",
+    "test": "jest test --watchAll=false --coverage",
+    "test:coverage": "jest test --silent --ci --watchAll=false --coverage --json --outputFile=./report.json",
     "check": "npm run prettier:check && npm run tscheck && npm run lint && npm run test"
   },
   "dependencies": {
