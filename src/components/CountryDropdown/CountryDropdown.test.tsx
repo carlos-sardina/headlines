@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@test-utils';
+import { render, fireEvent, act } from '@test-utils';
 import { Dropdown } from './CountryDropdown';
 import { COUNTRIES_MAP } from '@constants';
 
@@ -39,5 +39,25 @@ describe('Dropdown', () => {
     fireEvent.mouseDown(document.body);
 
     expect(button.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  test('does not close the dropdown when clicking inside the container', () => {
+    const { getByRole } = render(<Dropdown currentCountry="us" onChange={mockOnChange} />);
+    const button = getByRole('button');
+
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+
+    fireEvent.click(button);
+
+    expect(button.getAttribute('aria-expanded')).toBe('true');
+
+    const insideClickEvent = new MouseEvent('mousedown', { bubbles: true });
+    Object.defineProperty(insideClickEvent, 'target', { value: button });
+
+    act(() => {
+      document.dispatchEvent(insideClickEvent);
+    });
+
+    expect(button.getAttribute('aria-expanded')).toBe('true');
   });
 });
