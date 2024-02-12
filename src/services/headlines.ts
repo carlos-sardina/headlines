@@ -15,7 +15,7 @@ export const fetchHeadlines = async ({
   count = RESULTS_PER_PAGE
 }: FetchHeadlinesProps) => {
   const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${count}&page=${page}${categoryQuery}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`,
+    `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${count}&page=${page}${categoryQuery}&apiKey=${process.env.NEWS_API_KEY}`,
     { cache: 'no-cache' }
   );
   const data = await response.json();
